@@ -231,6 +231,16 @@ jQuery(document).ready(function($) {
 	};
 	siteCountDown();
 
+	function darkMode() {
+		document.getElementsByTagName("body")[0].style.color = "white";
+		document.getElementsByTagName("body")[0].style.backgroundColor = "black";
+    }
+
+	function LightMod() {
+		document.getElementsByTagName("body")[0].style.color = "black";
+		document.getElementsByTagName("body")[0].style.backgroundColor = "white";
+    }
+
 	var siteDatePicker = function() {
 
 		if ( $('.datepicker').length > 0 ) {

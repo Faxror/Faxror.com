@@ -1,10 +1,7 @@
 ﻿@using EntityLayer.Concrete
 @model Blog
 
-
-
 @{
-
     Layout = null;
 }
 
@@ -45,26 +42,19 @@
         <header class="site-navbar" role="banner">
             <div class="container-fluid">
                 <div class="row align-items-center">
-
-
-
                     <div class="col-4 site-logo">
                         <a href="index.html" class="text-black h2 mb-0">Yaz Blog</a>
                     </div>
-
                     <div class="col-8 text-right">
                         <nav class="site-navigation" role="navigation">
                             <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
                                 <li><a href="/Blog/Index">Ana Sayfa</a></li>
                                 <li><a href="/Default/Index">CV</a></li>
                                 <li><a href="category.html">Yazılım</a></li>
-
                             </ul>
                         </nav>
-
                     </div>
                 </div>
-
             </div>
         </header>
 
@@ -73,12 +63,12 @@
                 <div class="row same-height justify-content-center">
                     <div class="col-md-12 col-lg-10">
                         <div class="post-entry text-center">
-                            <span class="post-category text-white bg-success mb-3">Yazılım</span>
+                            <span class="post-category text-white bg-success mb-3">@Model.Category.CategoryName</span>
                             <h1 class="mb-4"><a href="#">@Model.BlogTıtle</a></h1>
                             <div class="post-meta align-items-center text-center">
                                 <figure class="author-figure mb-0 mr-3 d-inline-block"><img src="~/miniblog/images/person_1.jpg" alt="Image" class="img-fluid"></figure>
-                                <span class="d-inline-block mt-1">By Deniz</span>
-                                <span>&nbsp;-&nbsp; @DateTime.Now.Year </span>
+                                <span class="d-inline-block mt-1">By @Model.Author.AuthorName</span>
+                                 <span>&nbsp;-&nbsp; @DateTime.Now.Year </span>
                             </div>
                         </div>
                     </div>
@@ -86,37 +76,23 @@
             </div>
         </div>
 
-
         <section class="site-section py-lg">
             <div class="container">
-
                 <div class="row blog-entries element-animate">
-
                     <div class="col-md-12 col-lg-8 main-content">
-
-
-
-                        
                         <div class="post-content-body">
-                            <p>@Model.BlogContent</p>
+                            <p style="white-space: pre-line; color: black;">@Model.BlogContent</p>
                             <div class="row mb-5 mt-5">
                                 <div class="col-md-12 mb-4">
                                     <img src="@Model.BlogImage" alt="Image placeholder" class="img-fluid rounded">
                                 </div>
-
-
                             </div>
-
-
                             <div class="pt-5">
                                 <p>Categories:  <a href="#">Food</a>, <a href="#">Travel</a>  Tags: <a href="#">#manila</a>, <a href="#">#asia</a></p>
                             </div>
-
                         </div>
-
                     </div>
                     <!-- END main-content -->
-
                     <div class="col-md-12 col-lg-4 sidebar">
                         <div class="sidebar-box search-form-wrap">
                             <form action="#" class="search-form">
@@ -131,7 +107,7 @@
                             <div class="bio text-center">
                                 <img src="~/miniblog/images/person_1.jpg" alt="Image Placeholder" class="img-fluid mb-5">
                                 <div class="bio-body">
-                                    <h2>Deniz</h2>
+                                    <h2>By @Model.Author.AuthorName</h2>
                                     <p class="mb-4">NO EGO NO PROBLEMS</p>
                                     <p class="social">
                                         <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
@@ -141,30 +117,17 @@
                             </div>
                         </div>
                         <!-- END sidebar-box -->
-
-
-
-
                         <div class="sidebar-box">
                             <h3 class="heading">Taglar</h3>
                             <ul class="tags">
                                 <li><a href="#">Yazılım</a></li>
-
                             </ul>
                         </div>
                     </div>
                     <!-- END sidebar -->
-
                 </div>
             </div>
         </section>
-
-
-
-
-
-
-
         <div class="site-footer">
             <div class="container">
                 <div class="row mb-5">
@@ -173,17 +136,17 @@
                         <p>Hakkımda için lütfen CV ye gidiniz.</p>
                     </div>
                     <div class="col-md-3 ml-auto">
-                        <!-- <h3 class="footer-heading mb-4">Navigation</h3> -->
                         <ul class="list-unstyled float-left mr-5">
                             <li><a href="/Default/Index">CV</a></li>
+                            <li><a href="/Login/AuthorLogin">Yazar Giriş</a></li>
                         </ul>
                         <ul class="list-unstyled float-left">
                             <li><a href="/Blog/Index">Yazılım</a></li>
                         </ul>
+                        <ul class="list-unstyled float-left">
+                        </ul>
                     </div>
                     <div class="col-md-4">
-
-
                         <div>
                             <h3 class="footer-heading mb-4">Bana Ulaşabileceğiniz Yerler</h3>
                             <p>
@@ -205,9 +168,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
     <script src="~/miniblog/js/jquery-3.3.1.min.js"></script>
     <script src="~/miniblog/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="~/miniblog/js/jquery-ui.js"></script>
@@ -219,10 +180,6 @@
     <script src="~/miniblog/js/jquery.magnific-popup.min.js"></script>
     <script src="~/miniblog/js/bootstrap-datepicker.min.js"></script>
     <script src="~/miniblog/js/aos.js"></script>
-
     <script src="~/miniblog/js/main.js"></script>
-
-
-
 </body>
 </html>

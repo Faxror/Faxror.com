@@ -13,6 +13,7 @@
         <th>ID</th>
         <th>Başlık</th>
         <th>Kategori</th>
+        <th>Yazar</th>
         <th>Tarih</th>
         <th>İşlemler</th>
     </tr>
@@ -22,6 +23,7 @@
                     <td>@item.BlogID</td>
                     <td>@item.BlogTıtle</td>
                     <td>@item.Category.CategoryName</td>
+                    <td>@item.Author.AuthorName</td>
                     <td>@item.BlogTime.ToShortDateString()</td>
                     <td><a href="/Blog/AddUpdate/@item.BlogID" class="btn btn-outline-success">Düzenle</a> <a href="/Blog/DeleteBlog/@item.BlogID" class="btn btn-outline-danger">Sil</a></td>
                 </tr>

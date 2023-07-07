@@ -16,5 +16,7 @@ namespace BussinesLayer.Abstrack
 
         List<T> GetListAll();
 
+      
     }
+
 }

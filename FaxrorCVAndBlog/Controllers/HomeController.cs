@@ -1,4 +1,6 @@
-﻿using FaxrorCVAndBlog.Models;
+﻿using DataAccessLayer.Context;
+using EntityLayer.Concrete;
+using FaxrorCVAndBlog.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,10 +14,19 @@ namespace FaxrorCVAndBlog.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly CvBlogContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, CvBlogContext context)
         {
             _logger = logger;
+            _context = context;
+        }
+
+        [HttpGet("page")]
+        public IActionResult ppp(int page = 1)
+        {
+
+            return View();
         }
 
         public IActionResult Index()

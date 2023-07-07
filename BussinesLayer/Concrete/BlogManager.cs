@@ -1,5 +1,6 @@
 ﻿using BussinesLayer.Abstrack;
 using DataAccessLayer.Abstrack;
+using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,11 @@ namespace BussinesLayer.Concrete
         public void Delete(Blog t)
         {
             _blogDal.Delete(t);
+        }
+
+        public List<Blog> GetBlogListWhiteAuthor()
+        {
+            return _blogDal.GetBlogListWhiteAuthor();
         }
 
         public List<Blog> GetBlogListWhiteJob()
@@ -53,6 +59,26 @@ namespace BussinesLayer.Concrete
             _blogDal.Update(t);
         }
 
-    
+        public List<Blog> GetAllBlogs()
+        {
+            return _blogDal.GetListAll();
+        }
+
+        public List<Blog> GetAll()
+        {
+            return _blogDal.GetListAll();
+        }
+
+        public Blog GetBlogsWhit(int id)
+        {
+            var a = _blogDal.GetBlogsWhit(id);
+            return a;
+        }
+
+        public List<EFBlogDal.BlogWithAuthors> GetBlogWithAuthors(int? pageNumber)
+        {
+            var b = _blogDal.GetBlogWithAuthors(pageNumber);
+            return b;
+        }
     }
 }

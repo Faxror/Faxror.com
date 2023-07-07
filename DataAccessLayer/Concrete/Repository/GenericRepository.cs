@@ -49,5 +49,7 @@ namespace DataAccessLayer.Concrete.Repository
             c.Set<T>().Update(t);
             c.SaveChanges();
         }
+
+   
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DataAccessLayer.Concrete.EntityFramework.EFBlogDal;
 
 namespace BussinesLayer.Abstrack
 {
@@ -12,8 +13,13 @@ namespace BussinesLayer.Abstrack
     {
         List<Blog> GetBlogListWhiteJob();
 
+        List<Blog> GetBlogListWhiteAuthor();
 
         List<Blog> GetListAlll(int id);
-       
+
+        Blog GetBlogsWhit(int id);
+
+        List<BlogWithAuthors> GetBlogWithAuthors(int? pageNumber);
+
     }
 }

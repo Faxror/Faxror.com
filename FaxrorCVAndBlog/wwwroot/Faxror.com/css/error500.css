@@ -1,0 +1,20 @@
+img {
+	display: block;
+	margin: 0 auto;
+		margin-left: 440px;
+	margin-top: -400px;
+	height: auto;
+}
+
+h1 {
+	margin-top: 300px;
+	margin-left: 480px;
+}
+
+h4 {
+	color: black;
+	margin-top: 20px;
+	margin-left: 50px;
+	margin-right: auto;
+	text-align: center;
+}

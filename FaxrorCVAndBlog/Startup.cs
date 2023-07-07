@@ -52,6 +52,11 @@ namespace FaxrorCVAndBlog
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+
+            app.UseStatusCodePagesWithReExecute("/Error/{0}");
+            app.UseExceptionHandler("/Error/500");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -61,9 +66,9 @@ namespace FaxrorCVAndBlog
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
+                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Default}/{action=Index}/{id?}");
             });
         }
     }
