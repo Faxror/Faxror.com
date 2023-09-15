@@ -15,8 +15,4 @@ namespace EntityLayer.Concrete
     }
 }
 
-//Eksikler
-// Admin Login
-// Populer Konular
-// Yeni Konular
-// Ana Sayfa ya çeki düzen verme
+
