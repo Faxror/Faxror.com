@@ -14,9 +14,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using static DataAccessLayer.Concrete.EntityFramework.EFBlogDal;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FaxrorCVAndBlog.Controllers
 {
+    [AllowAnonymous]
     public class BlogController : Controller
     {
         private readonly IBlogService _blogService;

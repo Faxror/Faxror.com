@@ -3,6 +3,7 @@ using BussinesLayer.Concrete;
 using DataAccessLayer.Abstrack;
 using DataAccessLayer.Concrete.EntityFramework;
 using DataAccessLayer.Context;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,7 +30,7 @@ namespace FaxrorCVAndBlog
         public void ConfigureServices(IServiceCollection services)
         {
 
-
+            services.AddIdentity<AppUser, AppRole>();
 
             services.AddScoped<IBlogService, BlogManager>();
             services.AddScoped<IBlogDal, EFBlogDal>();
