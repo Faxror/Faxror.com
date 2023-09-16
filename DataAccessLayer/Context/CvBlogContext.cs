@@ -12,7 +12,7 @@ namespace DataAccessLayer.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=104.247.167.130\\MSSQLSERVER2016; database=pekovaco_CVBLOG; user=pekovaco_admindb; password=rx5392Q@g");
+            optionsBuilder.UseSqlServer("server=89.252.187.226\\MSSQLSERVER2016; database=pekovaco_CVBLOG; user=pekovaco_admindb; password=rx5392Q@g");
         }
 
 
