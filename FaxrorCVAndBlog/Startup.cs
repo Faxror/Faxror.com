@@ -1,12 +1,13 @@
-using BussinesLayer.Abstrack;
+    using BussinesLayer.Abstrack;
 using BussinesLayer.Concrete;
 using DataAccessLayer.Abstrack;
 using DataAccessLayer.Concrete.EntityFramework;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.Context;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.HttpsPolicy; 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,7 +31,14 @@ namespace FaxrorCVAndBlog
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddIdentity<AppUser, AppRole>();
+            services.AddIdentity<AppUser, AppRole>(x => {
+
+
+                x.Password.RequireUppercase = false;
+                x.Password.RequireNonAlphanumeric = false;
+            
+            
+            }).AddEntityFrameworkStores<CvBlogContext>();
 
             services.AddScoped<IBlogService, BlogManager>();
             services.AddScoped<IBlogDal, EFBlogDal>();

@@ -11,12 +11,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace FaxrorCVAndBlog.Controllers
 {
     [AllowAnonymous]
-    public class AdminLoginandRegisterController : Controller
+    public class RegisterController : Controller
     {
 
         private readonly UserManager<AppUser> _userManager;
 
-        public AdminLoginandRegisterController(UserManager<AppUser> userManager)
+        public RegisterController(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
         }
@@ -43,7 +43,7 @@ namespace FaxrorCVAndBlog.Controllers
 
              if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Login");
+                return RedirectToAction("AuthorLogin", "Login");
             }
              else
             {

@@ -14,7 +14,8 @@ namespace DataAccessLayer.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlServer("server=89.252.187.226\\MSSQLSERVER2016; database=pekovaco_CVBLOG; user=pekovaco_admindb; password=rx5392Q@g");
-            optionsBuilder.UseSqlServer("server=DESKTOP-N4SK79N; database=CVBLOG; integrated security =true");
+            //optionsBuilder.UseSqlServer("server=DESKTOP-N4SK79N; database=CVBLOG; integrated security =true");
+            optionsBuilder.UseSqlServer("server=DESKTOP-I45D279; database=CVBLOG; integrated security =true");
         }
 
 

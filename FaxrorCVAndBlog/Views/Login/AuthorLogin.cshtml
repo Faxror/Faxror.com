@@ -1,69 +1,58 @@
-﻿
+﻿@model UserLoginViewModel
+
+
 @{
     Layout = null;
 }
 
-
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
--->
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html>
 <head>
-    <title>Yaz Blog | Yazar Giriş Sayfası</title>
-    <!-- Meta tag Keywords -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8" />
-    <meta name="keywords"
-          content="Report Login Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <!-- //Meta tag Keywords -->
-    <link href="//fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <!--/Style-CSS -->
-    <link rel="stylesheet" href="~/Report-Login-Free/css/style.css" type="text/css" media="all" />
-    <!--//Style-CSS -->
 
-    <link rel="stylesheet" href="~/Report-Login-Free/css/font-awesome.min.css" type="text/css" media="all">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yaz Blog | Giriş Yap</title>
+
+    <link href="~/loginandregister/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/loginandregister/Fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="~/loginandregister/Content/animate.css" rel="stylesheet">
+    <link href="~/loginandregister/Content/style.css" rel="stylesheet">
 
 </head>
 
-<body>
+<body class="gray-bg">
 
-    <!-- form section start -->
-    <section class="w3l-hotair-form">
-        <h1>Yaz Blog</h1>
-        <div class="container">
-            <!-- /form -->
-            <div class="workinghny-form-grid">
-                <div class="main-hotair">
-                    <div class="content-wthree">
-                        <h2>Yazar Giriş</h2>
-                        <form action="#" method="post">
-                            <input type="text" class="text" name="text" placeholder="Yazar Adı" required="" autofocus>
-                            <input type="password" class="password" name="password" placeholder="Yazar Şifresi" required="" autofocus>
-                            <button class="btn" type="submit">Giriş Yap</button>
-                        </form>
+    <div class="middle-box text-center loginscreen  animated fadeInDown">
+        <div>
+            <div>
 
-                    </div>
-                    <div class="w3l_form align-self">
-                        <div class="left_grid_info">
-                            <img src="~/Report-Login-Free/images/1.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
+                <h1 class="logo-name">YB</h1>
+
             </div>
-            <!-- //form -->
+            <h3>Hoşgeldiniz, YB</h3>
+          
+            <p>Bilgilerinizi girerek giriş yapınız.</p>
+            <form class="m-t" role="form" asp-controller="Blog" asp-action="AuthorBlogList">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username" asp-for="@Model.UserName">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" asp-for="@Model.Password" >
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b" href="/Blog/AuthorBlogList/">Giriş Yap</button>
+
+               
+                <p class="text-muted text-center"><small>Henüz bir hesabınız yokmu?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="/Register/Index/">Hesap Oluştur</a>
+            </form>
+            <p class="m-t"> <small>Yaz Blog | Tüm Hakları Saklıdır. &copy; @DateTime.Now.Year</small> </p>
         </div>
-        <!-- copyright-->
-        <div class="copyright text-center">
-            <p class="copy-footer-29">
-                © @DateTime.Now.Year Yaz Blog | Tüm Hakları Gizlidir.
-            </p>
-        </div>
-        <!-- //copyright-->
-    </section>
-    <!-- //form section start -->
+    </div>
+
 </body>
 
 </html>
+
+

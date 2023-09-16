@@ -18,7 +18,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace FaxrorCVAndBlog.Controllers
 {
-    [AllowAnonymous]
     public class BlogController : Controller
     {
         private readonly IBlogService _blogService;
@@ -29,8 +28,12 @@ namespace FaxrorCVAndBlog.Controllers
             _context = context;
             _blogService = blogService;
         }
+        [AllowAnonymous]
         public IActionResult Index(int? pageNumber)
         {
+
+            var username = User.Identity.Name;
+            ViewBag.veri = username;
             int page = pageNumber ?? 1;
             int pageSize = 3;
             int offset = (page - 1) * pageSize;
@@ -75,7 +78,7 @@ namespace FaxrorCVAndBlog.Controllers
             public Blog Blog { get; set; }
             public Category Category { get; set; }
         }
-
+        [AllowAnonymous]
         public IActionResult BlogDetails(int id)
         {
 
@@ -83,7 +86,7 @@ namespace FaxrorCVAndBlog.Controllers
             return View("BlogDetails", blogWithAuthor);
 
         }
-
+ 
         public IActionResult AdminBlogList()
         {
            
@@ -92,8 +95,16 @@ namespace FaxrorCVAndBlog.Controllers
             return View(blo2);
         }
 
+
+        public IActionResult AuthorBlogList()
+        {
+
+
+            var blo2 = _blogService.GetBlogListWhiteJob();
+            return View(blo2);
+        }
         [HttpGet]
-        public IActionResult AddBlog()
+        public IActionResult AuthorAddBlog()
         {
             AuthorManager bookManager = new AuthorManager(new EFAuthorDal());
             List<SelectListItem> values = (from x    in bookManager.GetListAll()
@@ -113,6 +124,76 @@ namespace FaxrorCVAndBlog.Controllers
                                                Text = x.CategoryName,
                                                Value = x.CategoryID.ToString()
                                            }).ToList();
+            ViewBag.s = valuess;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AuthorAddBlog(Blog p)
+        {
+
+            _blogService.Insert(p);
+            return RedirectToAction("AuthorBlogList");
+        }
+
+        [HttpGet]
+        public IActionResult AuthorAddUpdate(int id)
+        {
+            AuthorManager bookManager = new AuthorManager(new EFAuthorDal());
+            List<SelectListItem> values = (from x in bookManager.GetListAll()
+                                           select new SelectListItem
+                                           {
+
+                                               Text = x.AuthorName,
+                                               Value = x.AuthorID.ToString()
+                                           }).ToList();
+            ViewBag.v = values;
+
+            CategoryManager categoryManager = new CategoryManager(new EFCategoryDal());
+            List<SelectListItem> valuess = (from x in categoryManager.GetListAll()
+                                            select new SelectListItem
+                                            {
+
+                                                Text = x.CategoryName,
+                                                Value = x.CategoryID.ToString()
+                                            }).ToList();
+            ViewBag.s = valuess;
+            var value = _blogService.GetById(id);
+            return View(value);
+        }
+        [HttpPost]
+        public IActionResult AuthorAddUpdate(Blog p)
+        {
+            _blogService.Update(p);
+            return RedirectToAction("AuthorBlogList");
+        }
+        public IActionResult AuthorDeleteBlog(int id)
+        {
+            var value = _blogService.GetById(id);
+            _blogService.Delete(value);
+            return RedirectToAction("AuthorBlogList");
+        }
+
+        [HttpGet]
+        public IActionResult AddBlog()
+        {
+            AuthorManager bookManager = new AuthorManager(new EFAuthorDal());
+            List<SelectListItem> values = (from x in bookManager.GetListAll()
+                                           select new SelectListItem
+                                           {
+
+                                               Text = x.AuthorName,
+                                               Value = x.AuthorID.ToString()
+                                           }).ToList();
+            ViewBag.v = values;
+
+            CategoryManager categoryManager = new CategoryManager(new EFCategoryDal());
+            List<SelectListItem> valuess = (from x in categoryManager.GetListAll()
+                                            select new SelectListItem
+                                            {
+
+                                                Text = x.CategoryName,
+                                                Value = x.CategoryID.ToString()
+                                            }).ToList();
             ViewBag.s = valuess;
             return View();
         }
