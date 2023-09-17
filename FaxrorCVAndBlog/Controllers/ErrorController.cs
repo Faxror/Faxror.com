@@ -27,6 +27,7 @@ namespace FaxrorCVAndBlog.Controllers
         try
         {
             throw new Exception("Bu bir örnek istisna.");
+
         }
         catch (Exception ex)
         {
@@ -39,13 +40,19 @@ namespace FaxrorCVAndBlog.Controllers
 
 
         }
-        [Route("Error/503")]
-        public IActionResult Page503( )
+        [Route("Error/403")]
+        public IActionResult Page403( )
         {
             return View();
         }
-    
-    
+
+        [Route("Error/408")]
+        public IActionResult Page408()
+        {
+            return View();
+        }
+
+
     }
 
 }
